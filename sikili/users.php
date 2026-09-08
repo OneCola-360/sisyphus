@@ -41,7 +41,10 @@ $user = mysqli_fetch_all($usersql, MYSQLI_ASSOC);
                                         <td><?= $user[$i]['nama']; ?></td>
                                         <td><?= $user[$i]['username']; ?></td>
                                         <td><?= $user[$i]['role']; ?></td>
-                                        <td></td>
+                                        <td>
+                                            <a href="form_manip/form_edit.php?<?= $user[$i]['id']; ?>" class="btn btn-warning btn-sm">Edit</a>
+                                            <a href="aksi/aksi_hapus.php?<?= $user[$i]['id'] ?>" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')" class="btn btn-danger btn-sm">Hapus</a>
+                                        </td>
                                     </tr>
                                 <?php endfor; ?>
                             <?php else: ?>
