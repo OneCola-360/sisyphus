@@ -129,7 +129,7 @@ if ($role == "guru"):
     $nama = $_POST["nama"] ?? "nn";
     $jk = $_POST["jk"] ?? "nn";
 
-    if ($nik !== "nn" && $nama !== "nn" && $kelas !== "nn" && $jk !== "nn") {
+    if ($nik !== "nn" && $nama !== "nn" && $jk !== "nn") {
         $sqlid = mysqli_fetch_all(mysqli_query($konek, "SELECT id FROM guru"), MYSQLI_ASSOC);
         $sqluserid = mysqli_fetch_all(mysqli_query($konek, "SELECT id FROM users"), MYSQLI_ASSOC);
         $user_id = count($sqluserid) + 1;
