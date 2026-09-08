@@ -47,10 +47,6 @@
                     <input type="text" class="form-control" name="username" placeholder="Masukkan Username" required>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">ID</label>
-                    <input type="text" class="form-control" name="username" placeholder="Masukkan Username" required>
-                </div>
-                <div class="mb-3">
                     <label class="form-label">Password</label>
                     <input type="password" class="form-control" name="password" placeholder="Masukkan Password" required>
                 </div>
