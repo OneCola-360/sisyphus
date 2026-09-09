@@ -1,5 +1,5 @@
 <?php
-$konek = mysqli_connect("127.0.0.1", "root", "", "db_sakuci");
+$konek = mysqli_connect("localhost", "root", "", "db_sakuci");
 ?>
 <!DOCTYPE html>
 <html>
