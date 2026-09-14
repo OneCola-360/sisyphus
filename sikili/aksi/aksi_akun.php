@@ -32,12 +32,12 @@ if ($role == "nn"):
 endif;
 if ($role == "nn") return;
 $username = $_POST["username"] ?? "nn";
-$password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+$password = $_POST["password"] ?? "nn";
 
 if ($username !== "nn" || $role !== "nn" || $password !== "nn") {
     $sqlid = mysqli_fetch_all(mysqli_query($konek, "SELECT id FROM users"), MYSQLI_ASSOC);
-    $id =  count($sqlid) + 1;
-
+    $id = intval(end($sqlid)) + 1;
+    
     mysqli_query($konek, "INSERT INTO users (id, username, password, role) VALUES (" . $id . ",'" . $username . "','" . $password . "','" . $role . "')");
 } else return;
 
@@ -49,8 +49,8 @@ if ($role == "admin"):
     if ($nik !== "nn" && $nama !== "nn" && $kelas !== "nn" && $jk !== "nn") {
         $sqlid = mysqli_fetch_all(mysqli_query($konek, "SELECT id FROM guru"), MYSQLI_ASSOC);
         $sqluserid = mysqli_fetch_all(mysqli_query($konek, "SELECT id FROM users"), MYSQLI_ASSOC);
-        $user_id = count($sqluserid) + 1;
-        $id =  count($sqlid) + 1;
+        $user_id = intval(end($sqluserid)) + 1;
+        $id = intval(end($sqlid)) + 1;
 
         mysqli_query($konek, "INSERT INTO guru (id, nip, nama, jenis_kelamin, user_id) VALUES (" . $id . "," . $nik . ",'" . $nama . "','" . $jk . "'," . $user_id . ")");
     }
@@ -91,8 +91,8 @@ if ($role == "siswa"):
     if ($nik !== "nn" && $nama !== "nn" && $kelas !== "nn" && $jk !== "nn") {
         $sqlid = mysqli_fetch_all(mysqli_query($konek, "SELECT id FROM siswa"), MYSQLI_ASSOC);
         $sqluserid = mysqli_fetch_all(mysqli_query($konek, "SELECT id FROM users"), MYSQLI_ASSOC);
-        $user_id = count($sqluserid) + 1;
-        $id =  count($sqlid) + 1;
+        $user_id = intval(end($sqluserid)) + 1;
+        $id = intval(end($sqlid)) + 1;
 
         mysqli_query($konek, "INSERT INTO siswa (id, nis, nama, kelas, jenis_kelamin, user_id) VALUES (" . $id . "," . $nik . ",'" . $nama . "','" . $kelas . "','" . $jk . "'," . $user_id . ")");
     }
@@ -132,8 +132,8 @@ if ($role == "guru"):
     if ($nik !== "nn" && $nama !== "nn" && $jk !== "nn") {
         $sqlid = mysqli_fetch_all(mysqli_query($konek, "SELECT id FROM guru"), MYSQLI_ASSOC);
         $sqluserid = mysqli_fetch_all(mysqli_query($konek, "SELECT id FROM users"), MYSQLI_ASSOC);
-        $user_id = count($sqluserid) + 1;
-        $id =  count($sqlid) + 1;
+        $user_id = intval(end($sqluserid)) + 1;
+        $id = intval(end($sqlid)) + 1;
 
         mysqli_query($konek, "INSERT INTO guru (id, nip, nama, jenis_kelamin, user_id) VALUES (" . $id . "," . $nik . ",'" . $nama . "','" . $jk . "'," . $user_id . ")");
     }

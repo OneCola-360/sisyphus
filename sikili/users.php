@@ -26,7 +26,7 @@ $user = mysqli_fetch_all($usersql, MYSQLI_ASSOC);
                     <table id="tabelUser" class="table table-striped table-hover border">
                         <thead>
                             <tr>
-                                <th scope="col" style="width: 10%;">No</th>
+                                <th scope="col" style="width: 10%;">Id</th>
                                 <th scope="col">User</th>
                                 <th scope="col">Username</th>
                                 <th scope="col">Role</th>
@@ -37,12 +37,12 @@ $user = mysqli_fetch_all($usersql, MYSQLI_ASSOC);
                             <?php if (count($user) > 0): ?>
                                 <?php foreach($user as $i): ?>
                                     <tr>
-                                        <td>placeholder</td>
+                                        <td><?= $i['id']; ?></td>
                                         <td><?= $i['nama']; ?></td>
                                         <td><?= $i['username']; ?></td>
                                         <td><?= $i['role']; ?></td>
                                         <td>
-                                            <a href="form_manip/form_edit.php?id=<?= $i['id']; ?>&&role=<?= $i['role']; ?>" class="btn btn-warning btn-sm">Edit</a>
+                                            <a href="form_manip/form_edit.php?id=<?= $i['id']; ?>&&role=<?= $i['role']; ?>&&nama=<?= $i['nama']; ?>&&username=<?= $i['username']; ?>&&password=<?= $i['password']; ?>" class="btn btn-warning btn-sm">Edit</a>
                                             <a href="aksi/aksi_hapus.php?id=<?= $i['id']; ?>&&role=<?= $i['role']; ?>" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')" class="btn btn-danger btn-sm">Hapus</a>
                                         </td>
                                     </tr>
