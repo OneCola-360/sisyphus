@@ -1,15 +1,10 @@
 <?php 
 require("../konek.php");
+include("../header.php");
 
 $role = $_POST["role"] ?? "nn";
 if ($role == "nn"):
 ?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Action</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    </head>
     <body>
         <div class="container mt-5" style="width=50%">
             <div class="card shadow">
@@ -36,7 +31,7 @@ $password = $_POST["password"] ?? "nn";
 
 if ($username !== "nn" || $role !== "nn" || $password !== "nn") {
     $sqlid = mysqli_fetch_all(mysqli_query($konek, "SELECT id FROM users"), MYSQLI_ASSOC);
-    $id = intval(end($sqlid)) + 1;
+    $id = count($sqlid) !== intval(end($sqlid)) ? intval(end($sqlid)) + 1 : count($sqlid) + 1;
     
     mysqli_query($konek, "INSERT INTO users (id, username, password, role) VALUES (" . $id . ",'" . $username . "','" . $password . "','" . $role . "')");
 } else return;
@@ -46,21 +41,15 @@ if ($role == "admin"):
     $nama = $_POST["nama"] ?? "nn";
     $jk = $_POST["jk"] ?? "nn";
 
-    if ($nik !== "nn" && $nama !== "nn" && $kelas !== "nn" && $jk !== "nn") {
+    if ($nik !== "nn" && $nama !== "nn"  && $jk !== "nn") {
         $sqlid = mysqli_fetch_all(mysqli_query($konek, "SELECT id FROM guru"), MYSQLI_ASSOC);
         $sqluserid = mysqli_fetch_all(mysqli_query($konek, "SELECT id FROM users"), MYSQLI_ASSOC);
-        $user_id = intval(end($sqluserid)) + 1;
-        $id = intval(end($sqlid)) + 1;
+        $user_id = count($sqluserid) !== intval(end($sqluserid)) ? intval(end($sqluserid)) + 1 : count($sqluserid) + 1;
+        $id = count($sqlid) !== intval(end($sqlid)) ? intval(end($sqlid)) + 1 : count($sqlid) + 1;
 
         mysqli_query($konek, "INSERT INTO guru (id, nip, nama, jenis_kelamin, user_id) VALUES (" . $id . "," . $nik . ",'" . $nama . "','" . $jk . "'," . $user_id . ")");
     }
 ?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Action</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    </head>
     <body>
         <div class="container mt-5" style="width=50%">
             <div class="card shadow">
@@ -91,18 +80,12 @@ if ($role == "siswa"):
     if ($nik !== "nn" && $nama !== "nn" && $kelas !== "nn" && $jk !== "nn") {
         $sqlid = mysqli_fetch_all(mysqli_query($konek, "SELECT id FROM siswa"), MYSQLI_ASSOC);
         $sqluserid = mysqli_fetch_all(mysqli_query($konek, "SELECT id FROM users"), MYSQLI_ASSOC);
-        $user_id = intval(end($sqluserid)) + 1;
-        $id = intval(end($sqlid)) + 1;
+        $user_id = count($sqluserid) !== intval(end($sqluserid)) ? intval(end($sqluserid)) + 1 : count($sqluserid) + 1;
+        $id = count($sqlid) !== intval(end($sqlid)) ? intval(end($sqlid)) + 1 : count($sqlid) + 1;
 
         mysqli_query($konek, "INSERT INTO siswa (id, nis, nama, kelas, jenis_kelamin, user_id) VALUES (" . $id . "," . $nik . ",'" . $nama . "','" . $kelas . "','" . $jk . "'," . $user_id . ")");
     }
 ?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Action</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    </head>
     <body>
         <div class="container mt-5" style="width=50%">
             <div class="card shadow">
@@ -132,18 +115,12 @@ if ($role == "guru"):
     if ($nik !== "nn" && $nama !== "nn" && $jk !== "nn") {
         $sqlid = mysqli_fetch_all(mysqli_query($konek, "SELECT id FROM guru"), MYSQLI_ASSOC);
         $sqluserid = mysqli_fetch_all(mysqli_query($konek, "SELECT id FROM users"), MYSQLI_ASSOC);
-        $user_id = intval(end($sqluserid)) + 1;
-        $id = intval(end($sqlid)) + 1;
+        $user_id = count($sqluserid) !== intval(end($sqluserid)) ? intval(end($sqluserid)) + 1 : count($sqluserid) + 1;
+        $id = count($sqlid) !== intval(end($sqlid)) ? intval(end($sqlid)) + 1 : count($sqlid) + 1;
 
         mysqli_query($konek, "INSERT INTO guru (id, nip, nama, jenis_kelamin, user_id) VALUES (" . $id . "," . $nik . ",'" . $nama . "','" . $jk . "'," . $user_id . ")");
     }
 ?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Action</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    </head>
     <body>
         <div class="container mt-5" style="width=50%">
             <div class="card shadow">

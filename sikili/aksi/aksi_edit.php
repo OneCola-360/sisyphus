@@ -1,19 +1,14 @@
 <?php 
 require("../konek.php");
+include("../header.php");
 
 $id = $_POST['id'];
 $role = $_POST['role'];
 $username = $_POST['username'];
 $password = $_POST['password'];
 
-mysqli_query($konek, "UPDATE users SET role = $role, username = $username, password = $password WHERE id = $id");
+mysqli_query($konek, "UPDATE users SET role = '$role', username = '$username', password = '$password' WHERE users.id = $id");
 ?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Action</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    </head>
     <body>
         <div class="container mt-5" style="width=50%">
             <div class="card shadow">

@@ -1,7 +1,8 @@
 <?php
 include("konek.php");
+include("header.php");
 
-$sql = "SELECT *,
+$sql = "SELECT users.id, username, role, password, created_at, guru.user_id, siswa.user_id,
 COALESCE (siswa.nama, guru.nama) AS nama
 FROM users
 LEFT JOIN siswa ON users.id = siswa.user_id
@@ -12,12 +13,8 @@ $usersql = mysqli_query($konek, $sql);
 
 $user = mysqli_fetch_all($usersql, MYSQLI_ASSOC);
 
+$o = 1;
 ?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    </head>
     <body>
         <div class="container my-4">
             <div class="row justify-content-center">
@@ -26,7 +23,7 @@ $user = mysqli_fetch_all($usersql, MYSQLI_ASSOC);
                     <table id="tabelUser" class="table table-striped table-hover border">
                         <thead>
                             <tr>
-                                <th scope="col" style="width: 10%;">Id</th>
+                                <th scope="col" style="width: 10%;">No</th>
                                 <th scope="col">User</th>
                                 <th scope="col">Username</th>
                                 <th scope="col">Role</th>
@@ -37,7 +34,7 @@ $user = mysqli_fetch_all($usersql, MYSQLI_ASSOC);
                             <?php if (count($user) > 0): ?>
                                 <?php foreach($user as $i): ?>
                                     <tr>
-                                        <td><?= $i['id']; ?></td>
+                                        <td><?= $o++; ?></td>
                                         <td><?= $i['nama']; ?></td>
                                         <td><?= $i['username']; ?></td>
                                         <td><?= $i['role']; ?></td>

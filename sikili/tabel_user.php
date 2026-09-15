@@ -1,5 +1,6 @@
 <?php
 include("konek.php");
+include("header.php");
 
 $sql = "SELECT * FROM users;";
 
@@ -8,11 +9,6 @@ $usersql = mysqli_query($konek, $sql);
 $user = mysqli_fetch_all($usersql, MYSQLI_ASSOC);
 
 ?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    </head>
     <body>
         <div class="container my-4">
             <div class="row justify-content-center">

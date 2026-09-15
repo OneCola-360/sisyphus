@@ -1,18 +1,11 @@
 <?php 
 require("../konek.php"); 
+include("../header.php");
+
 $id = $_GET['id'];
 $role = $_GET['role'];
 if ($role == 'guru' || $role == 'admin'):
 ?>
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Tambah Guru</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
 <body class="bg-light">
 <div class="container mt-5" style="width=50%">
     <div class="card shadow">
@@ -33,13 +26,13 @@ if ($role == 'guru' || $role == 'admin'):
                 <div class="mb-3">
                     <label class="form-label">Role saat ini: <?= $role ?></label>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="role" value="admin" id="admin">
+                        <input class="form-check-input" type="radio" name="role" value="admin" id="role">
                         <label class="form-check-label" for="admin">
                             Admin
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="role" value="guru" id="guru">
+                        <input class="form-check-input" type="radio" name="role" value="guru" id="role">
                         <label class="form-check-label" for="guru">
                             Guru
                         </label>
