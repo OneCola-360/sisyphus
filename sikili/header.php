@@ -22,8 +22,8 @@
                             Dropdown
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="create_new/siswa_input.php">Buat Akun Siswa</a></li>
-                           <li><a class="dropdown-item" href="create_new/guru_input.php">Buat Akun Guru</a></li>
+                            <li><a class="dropdown-item" href="#">Buat Akun Siswa</a></li>
+                           <li><a class="dropdown-item" href="#">Buat Akun Guru</a></li>
                         </ul>
                     </li>
                 </ul>
