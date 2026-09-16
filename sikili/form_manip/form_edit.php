@@ -17,11 +17,11 @@ if ($role == 'guru' || $role == 'admin'):
                 <h4>Data Akun <?= $_GET['nama']; ?></h4>
                 <div class="mb-3">
                     <label class="form-label">Username</label>
-                    <input type="text" class="form-control" name="username" placeholder="<?= $_GET['username']; ?>" required>
+                    <input type="text" class="form-control" name="username" placeholder="<?= $_GET['username']; ?>" value="<?= $_GET['username']; ?>">
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Password</label>
-                    <input type="password" class="form-control" name="password" placeholder="<?= $_GET['password']; ?>" required>
+                    <input type="password" class="form-control" name="password" placeholder="<?= $_GET['password']; ?>" value="<?= $_GET['password']; ?>">
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Role saat ini: <?= $role ?></label>
