@@ -1,6 +1,6 @@
 <?php 
 require("../konek.php");
-include("../header.php");
+include("header.php");
 
 $id = $_POST['id'];
 $role = $_POST['role'];

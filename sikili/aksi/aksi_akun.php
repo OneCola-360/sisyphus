@@ -1,6 +1,11 @@
 <?php 
 require("../konek.php");
-include("../header.php");
+include("header.php");
+
+$sqluserid = mysqli_fetch_all(mysqli_query($konek, "SELECT * FROM users"), MYSQLI_ASSOC);
+foreach ($sqluserid as $oo) {}
+$user_id = intval($oo['id']) + 1;
+echo $user_id;
 
 $role = $_POST["role"] ?? "nn";
 if ($role == "nn"):
@@ -30,10 +35,8 @@ $username = $_POST["username"] ?? "nn";
 $password = $_POST["password"] ?? "nn";
 
 if ($username !== "nn" || $role !== "nn" || $password !== "nn") {
-    $sqlid = mysqli_fetch_all(mysqli_query($konek, "SELECT id FROM users"), MYSQLI_ASSOC);
-    $id = count($sqlid) !== intval(end($sqlid)) ? intval(end($sqlid)) + 1 : count($sqlid) + 1;
     
-    mysqli_query($konek, "INSERT INTO users (id, username, password, role) VALUES (" . $id . ",'" . $username . "','" . $password . "','" . $role . "')");
+    mysqli_query($konek, "INSERT INTO users (id, username, password, role) VALUES (" . $user_id . ",'" . $username . "','" . $password . "','" . $role . "')");
 } else return;
 
 if ($role == "admin"):
@@ -43,9 +46,8 @@ if ($role == "admin"):
 
     if ($nik !== "nn" && $nama !== "nn"  && $jk !== "nn") {
         $sqlid = mysqli_fetch_all(mysqli_query($konek, "SELECT id FROM guru"), MYSQLI_ASSOC);
-        $sqluserid = mysqli_fetch_all(mysqli_query($konek, "SELECT id FROM users"), MYSQLI_ASSOC);
-        $user_id = count($sqluserid) !== intval(end($sqluserid)) ? intval(end($sqluserid)) + 1 : count($sqluserid) + 1;
-        $id = count($sqlid) !== intval(end($sqlid)) ? intval(end($sqlid)) + 1 : count($sqlid) + 1;
+        foreach ($sqlid as $i) {}
+        $id = $i['id'] + 1;
 
         mysqli_query($konek, "INSERT INTO guru (id, nip, nama, jenis_kelamin, user_id) VALUES (" . $id . "," . $nik . ",'" . $nama . "','" . $jk . "'," . $user_id . ")");
     }
@@ -79,9 +81,8 @@ if ($role == "siswa"):
 
     if ($nik !== "nn" && $nama !== "nn" && $kelas !== "nn" && $jk !== "nn") {
         $sqlid = mysqli_fetch_all(mysqli_query($konek, "SELECT id FROM siswa"), MYSQLI_ASSOC);
-        $sqluserid = mysqli_fetch_all(mysqli_query($konek, "SELECT id FROM users"), MYSQLI_ASSOC);
-        $user_id = count($sqluserid) !== intval(end($sqluserid)) ? intval(end($sqluserid)) + 1 : count($sqluserid) + 1;
-        $id = count($sqlid) !== intval(end($sqlid)) ? intval(end($sqlid)) + 1 : count($sqlid) + 1;
+        foreach ($sqlid as $i) {}
+        $id = $i['id'] + 1;
 
         mysqli_query($konek, "INSERT INTO siswa (id, nis, nama, kelas, jenis_kelamin, user_id) VALUES (" . $id . "," . $nik . ",'" . $nama . "','" . $kelas . "','" . $jk . "'," . $user_id . ")");
     }
@@ -114,9 +115,8 @@ if ($role == "guru"):
 
     if ($nik !== "nn" && $nama !== "nn" && $jk !== "nn") {
         $sqlid = mysqli_fetch_all(mysqli_query($konek, "SELECT id FROM guru"), MYSQLI_ASSOC);
-        $sqluserid = mysqli_fetch_all(mysqli_query($konek, "SELECT id FROM users"), MYSQLI_ASSOC);
-        $user_id = count($sqluserid) !== intval(end($sqluserid)) ? intval(end($sqluserid)) + 1 : count($sqluserid) + 1;
-        $id = count($sqlid) !== intval(end($sqlid)) ? intval(end($sqlid)) + 1 : count($sqlid) + 1;
+        foreach ($sqlid as $i) {}
+        $id = $i['id'] + 1;
 
         mysqli_query($konek, "INSERT INTO guru (id, nip, nama, jenis_kelamin, user_id) VALUES (" . $id . "," . $nik . ",'" . $nama . "','" . $jk . "'," . $user_id . ")");
     }

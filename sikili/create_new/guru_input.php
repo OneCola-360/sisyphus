@@ -1,6 +1,6 @@
 <?php 
 require("../konek.php"); 
-include("../header.php");
+include("header.php");
 ?>
 <body class="bg-light">
 <div class="container mt-5" style="width=50%">

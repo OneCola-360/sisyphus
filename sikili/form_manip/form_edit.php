@@ -1,6 +1,6 @@
 <?php 
 require("../konek.php"); 
-include("../header.php");
+include("header.php");
 
 $id = $_GET['id'];
 $role = $_GET['role'];
