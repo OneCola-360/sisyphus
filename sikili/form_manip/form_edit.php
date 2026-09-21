@@ -21,7 +21,7 @@ if ($role == 'guru' || $role == 'admin'):
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Password</label>
-                    <input type="password" class="form-control" name="password" placeholder="<?= $_GET['password']; ?>" value="<?= $_GET['password']; ?>">
+                    <input type="password" class="form-control" name="password" placeholder="Masukan Password Untuk Melanjutkan" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Role saat ini: <?= $role ?></label>
@@ -43,6 +43,7 @@ if ($role == 'guru' || $role == 'admin'):
                     <button type="reset" class="btn btn-secondary">Kembali</button>
                 </div>
                 <input type="text" value="<?= $_GET['id']; ?>" style="display: none;" name="id" id="id">
+                <input type="text" value="<?= $_GET['password']; ?>" style="display: none;" name="org_pass" id="org_pass">
             </form>
         </div>
     </div>
@@ -77,7 +78,7 @@ elseif ($role == 'siswa'):
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Password</label>
-                    <input type="password" class="form-control" name="password" placeholder="<?= $_GET['password']; ?>" required>
+                    <input type="password" class="form-control" name="password" placeholder="Masukan Password Untuk Melanjutkan" required>
                 </div>
                 <div class="mb-3">
                     <button type="submit" class="btn btn-primary">Simpan</button>
@@ -85,6 +86,7 @@ elseif ($role == 'siswa'):
                 </div>
                 <input type="text" value="siswa" style="display: none;" name="role" id="role">
                 <input type="text" value="<?= $_GET['id']; ?>" style="display: none;" name="id" id="id">
+                <input type="text" value="<?= $_GET['password']; ?>" style="display: none;" name="org_pass" id="org_pass">
             </form>
         </div>
     </div>

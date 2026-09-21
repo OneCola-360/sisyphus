@@ -3,8 +3,8 @@ require("../konek.php");
 include("header.php");
 
 $sqluserid = mysqli_fetch_all(mysqli_query($konek, "SELECT * FROM users"), MYSQLI_ASSOC);
-foreach ($sqluserid as $oo) {}
-$user_id = intval($oo['id']) + 1;
+foreach ($sqluserid as $o) {}
+$user_id = intval($o['id']) + 1;
 echo $user_id;
 
 $role = $_POST["role"] ?? "nn";
@@ -45,9 +45,9 @@ if ($role == "admin"):
     $jk = $_POST["jk"] ?? "nn";
 
     if ($nik !== "nn" && $nama !== "nn"  && $jk !== "nn") {
-        $sqlid = mysqli_fetch_all(mysqli_query($konek, "SELECT id FROM guru"), MYSQLI_ASSOC);
+        $sqlid = mysqli_fetch_all(mysqli_query($konek, "SELECT * FROM guru"), MYSQLI_ASSOC);
         foreach ($sqlid as $i) {}
-        $id = $i['id'] + 1;
+        $id = intval($i['id']) + 1;
 
         mysqli_query($konek, "INSERT INTO guru (id, nip, nama, jenis_kelamin, user_id) VALUES (" . $id . "," . $nik . ",'" . $nama . "','" . $jk . "'," . $user_id . ")");
     }
@@ -80,9 +80,9 @@ if ($role == "siswa"):
     $jk = $_POST["jk"] ?? "nn";
 
     if ($nik !== "nn" && $nama !== "nn" && $kelas !== "nn" && $jk !== "nn") {
-        $sqlid = mysqli_fetch_all(mysqli_query($konek, "SELECT id FROM siswa"), MYSQLI_ASSOC);
+        $sqlid = mysqli_fetch_all(mysqli_query($konek, "SELECT * FROM siswa"), MYSQLI_ASSOC);
         foreach ($sqlid as $i) {}
-        $id = $i['id'] + 1;
+        $id = intval($i['id']) + 1;
 
         mysqli_query($konek, "INSERT INTO siswa (id, nis, nama, kelas, jenis_kelamin, user_id) VALUES (" . $id . "," . $nik . ",'" . $nama . "','" . $kelas . "','" . $jk . "'," . $user_id . ")");
     }
@@ -114,9 +114,9 @@ if ($role == "guru"):
     $jk = $_POST["jk"] ?? "nn";
 
     if ($nik !== "nn" && $nama !== "nn" && $jk !== "nn") {
-        $sqlid = mysqli_fetch_all(mysqli_query($konek, "SELECT id FROM guru"), MYSQLI_ASSOC);
+        $sqlid = mysqli_fetch_all(mysqli_query($konek, "SELECT * FROM guru"), MYSQLI_ASSOC);
         foreach ($sqlid as $i) {}
-        $id = $i['id'] + 1;
+        $id = intval($i['id']) + 1;
 
         mysqli_query($konek, "INSERT INTO guru (id, nip, nama, jenis_kelamin, user_id) VALUES (" . $id . "," . $nik . ",'" . $nama . "','" . $jk . "'," . $user_id . ")");
     }
