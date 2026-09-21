@@ -10,7 +10,7 @@ if ($role == 'guru' || $role == 'admin'):
 <div class="container mt-5" style="width=50%">
     <div class="card shadow">
         <div class="card-header">
-            <h3>Form Tambah Admin</h3>
+            <h3>Form Edit Data</h3>
         </div>
         <div class="card-body">
             <form action="../aksi/aksi_edit.php" method="post">
@@ -42,8 +42,8 @@ if ($role == 'guru' || $role == 'admin'):
                     <button type="submit" class="btn btn-primary">Simpan</button>
                     <button type="reset" class="btn btn-secondary">Kembali</button>
                 </div>
-                <input type="text" value="<?= $_GET['id']; ?>" style="display: none;" name="id" id="id">
-                <input type="text" value="<?= $_GET['password']; ?>" style="display: none;" name="org_pass" id="org_pass">
+                <input type="text" value="<?= $_GET['id']; ?>" style="display: none;" name="id" id="id" readonly>
+                <input type="text" value="<?= $_GET['password']; ?>" style="display: none;" name="org_pass" id="org_pass" readonly>
             </form>
         </div>
     </div>
@@ -67,14 +67,14 @@ elseif ($role == 'siswa'):
 <div class="container mt-5" style="width=50%">
     <div class="card shadow">
         <div class="card-header">
-            <h3>Form Tambah Admin</h3>
+            <h3>Form Edit Data</h3>
         </div>
         <div class="card-body">
             <form action="../aksi/aksi_edit.php" method="post">
                 <h4>Data Akun <?= $_GET['nama']; ?></h4>
                 <div class="mb-3">
                     <label class="form-label">Username</label>
-                    <input type="text" class="form-control" name="username" placeholder="<?= $_GET['username']; ?>" required>
+                    <input type="text" class="form-control" name="username" placeholder="<?= $_GET['username']; ?>" value="<?= $_GET['username']; ?>" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Password</label>
@@ -85,8 +85,8 @@ elseif ($role == 'siswa'):
                     <button type="reset" class="btn btn-secondary">Kembali</button>
                 </div>
                 <input type="text" value="siswa" style="display: none;" name="role" id="role">
-                <input type="text" value="<?= $_GET['id']; ?>" style="display: none;" name="id" id="id">
-                <input type="text" value="<?= $_GET['password']; ?>" style="display: none;" name="org_pass" id="org_pass">
+                <input type="text" value="<?= $_GET['id']; ?>" style="display: none;" name="id" id="id" readonly>
+                <input type="text" value="<?= $_GET['password']; ?>" style="display: none;" name="org_pass" id="org_pass" readonly>
             </form>
         </div>
     </div>

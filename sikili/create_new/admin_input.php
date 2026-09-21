@@ -21,10 +21,6 @@ include("header.php");
                     <input type="text" class="form-control" name="nama" placeholder="Contoh: Ujang Acep" required>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Mapel Guru</label>
-                    <input type="text" class="form-control" name="mapel" placeholder="Contoh: RPL" required>
-                </div>
-                <div class="mb-3">
                     <label class="form-label">Jenis Kelamin</label>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="jk" value="Laki-laki" id="laki">

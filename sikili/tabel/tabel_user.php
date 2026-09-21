@@ -8,6 +8,7 @@ $usersql = mysqli_query($konek, $sql);
 
 $user = mysqli_fetch_all($usersql, MYSQLI_ASSOC);
 
+$o = 1;
 ?>
     <body>
         <div class="container my-4">
@@ -27,16 +28,16 @@ $user = mysqli_fetch_all($usersql, MYSQLI_ASSOC);
                          </thead>
                          <tbody>
                             <?php if (count($user) > 0): ?>
-                                <?php for($i = 0; $i < count($user); $i++): ?>
+                                <?php foreach($user as $i): ?>
                                     <tr>
-                                        <td><?php $j = $i + 1; echo $j; ?></td>
-                                        <td><?= $user[$i]['id']; ?></td>
-                                        <td><?= $user[$i]['username']; ?></td>
-                                        <td><?= $user[$i]['password']; ?></td>
-                                        <td><?= $user[$i]['role']; ?></td>
-                                        <td><?= $user[$i]['created_at']; ?></td>
+                                        <td><?= $o++; ?></td>
+                                        <td><?= $i['id']; ?></td>
+                                        <td><?= $i['username']; ?></td>
+                                        <td><?= $i['password']; ?></td>
+                                        <td><?= $i['role']; ?></td>
+                                        <td><?= $i['created_at']; ?></td>
                                     </tr>
-                                <?php endfor; ?>
+                                <?php endforeach; ?>
                             <?php else: ?>
                                 <tr>
                                     <td colspan="6">Data Belum Di Isi</td>
