@@ -1,5 +1,4 @@
 <?php 
-require("../konek.php"); 
 include("header.php");
 
 $id = $_GET['id'];
@@ -13,7 +12,7 @@ if ($role == 'guru' || $role == 'admin'):
             <h3>Form Edit Data</h3>
         </div>
         <div class="card-body">
-            <form action="../aksi/aksi_edit.php" method="post">
+            <form action="../aksi/akun/aksi_edit.php" method="post">
                 <h4>Data Akun <?= $_GET['nama']; ?></h4>
                 <div class="mb-3">
                     <label class="form-label">Username</label>

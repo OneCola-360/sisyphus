@@ -11,7 +11,7 @@ include("header.php");
         <div class="card-body">
             <h4>Data Profil Guru</h4>
             <hr>
-            <form action="../aksi/aksi_akun.php" method="post">
+            <form action="../aksi/akun/aksi_akun.php" method="post">
                 <div class="mb-3">
                     <label class="form-label">Nomor Induk Pengajar</label>
                     <input type="number" class="form-control" name="nip" placeholder="Contoh: 12345678" require>

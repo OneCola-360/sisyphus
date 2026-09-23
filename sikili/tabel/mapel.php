@@ -2,16 +2,14 @@
 include("../konek.php");
 include("header.php");
 
-$sql = "SELECT users.id, username, role, password, created_at, guru.user_id, siswa.user_id,
-COALESCE (siswa.nama, guru.nama) AS nama
-FROM users
-LEFT JOIN siswa ON users.id = siswa.user_id
-LEFT JOIN guru ON users.id = guru.user_id
-ORDER BY users.id asc;";
+$sql = "SELECT mapel.id, kode_mapel, mapel.nama, guru_id, guru.nama AS nama_guru
+FROM mapel
+LEFT JOIN guru ON mapel.guru_id = guru.id
+ORDER BY mapel.id asc;";
 
-$usersql = mysqli_query($konek, $sql);
+$mapelsql = mysqli_query($konek, $sql);
 
-$user = mysqli_fetch_all($usersql, MYSQLI_ASSOC);
+$mapel = mysqli_fetch_all($mapelsql, MYSQLI_ASSOC);
 
 $o = 1;
 ?>
@@ -24,23 +22,23 @@ $o = 1;
                         <thead>
                             <tr>
                                 <th scope="col" style="width: 10%;">No</th>
-                                <th scope="col">User</th>
-                                <th scope="col">Username</th>
-                                <th scope="col">Role</th>
+                                <th scope="col">Kode Mapel</th>
+                                <th scope="col">Mapel</th>
+                                <th scope="col">Guru</th>
                                 <th scope="col">Aksi</th>
                             </tr>
                          </thead>
                          <tbody>
-                            <?php if (count($user) > 0): ?>
-                                <?php foreach($user as $i): ?>
+                            <?php if (count($mapel) > 0): ?>
+                                <?php foreach($mapel as $i): ?>
                                     <tr>
                                         <td><?= $o++; ?></td>
+                                        <td><?= $i['kode_mapel']; ?></td>
                                         <td><?= $i['nama']; ?></td>
-                                        <td><?= $i['username']; ?></td>
-                                        <td><?= $i['role']; ?></td>
+                                        <td><?= $i['nama_guru']; ?></td>
                                         <td>
-                                            <a href="../form_manip/form_edit.php?id=<?= $i['id']; ?>&&role=<?= $i['role']; ?>&&nama=<?= $i['nama']; ?>&&username=<?= $i['username']; ?>&&password=<?= $i['password']; ?>" class="btn btn-warning btn-sm">Edit</a>
-                                            <a href="../aksi/akun/aksi_hapus.php?id=<?= $i['id']; ?>&&role=<?= $i['role']; ?>" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')" class="btn btn-danger btn-sm">Hapus</a>
+                                            <a href="../form_manip/form_edit_mapel.php?id=<?= $i['id']; ?>&&kode=<?= $i['kode_mapel']; ?>&&nama=<?= $i['nama']; ?>&&guru=<?= $i['nama_guru']; ?>" class="btn btn-warning btn-sm">Edit</a>
+                                            <a href="../aksi/mapel/aksi_hapus.php?id=<?= $i['id']; ?>" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')" class="btn btn-danger btn-sm">Hapus</a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>

@@ -1,5 +1,5 @@
 <?php 
-require("../konek.php");
+require("../../konek.php");
 include("header.php");
 
 $id = $_POST['id'];
@@ -9,7 +9,7 @@ $password = $_POST['password'];
 $org_pass = $_POST['org_pass'];
 
 if ($password == $org_pass):
-mysqli_query($konek, "UPDATE users SET role = '$role', username = '$username', password = '$password' WHERE users.id = $id");
+mysqli_query($konek, "UPDATE users SET role = '$role', username = '$username'  WHERE users.id = $id");
 ?>
     <body>
         <div class="container mt-5" style="width=50%">
@@ -18,7 +18,7 @@ mysqli_query($konek, "UPDATE users SET role = '$role', username = '$username', p
                     <h3>Data berhasil diubah</h3>
                 </div>
                 <div class="card-body">
-                    <form action="../users.php">
+                    <form action="../../tabel/users.php">
                         <div class="mb-3">
                             <button class="btn btn-primary" type="submit">Kembali</button>
                         </div>
@@ -39,7 +39,7 @@ else:
                 </div>
                 <div class="card-body">
                     <h5>Password Salah</h5>
-                    <form action="../users.php">
+                    <form action="../../tabel/users.php">
                         <div class="mb-3">
                             <button class="btn btn-primary" type="submit">Kembali</button>
                         </div>
