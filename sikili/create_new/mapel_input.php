@@ -14,10 +14,6 @@ $gurus = mysqli_query($konek, $sqlguru);
         <div class="card-body">
             <form action="../aksi/mapel/aksi_mapel.php" method="post">
                 <div class="mb-3">
-                    <label class="form-label">Kode Mapel</label>
-                    <input type="text" class="form-control" name="kode" placeholder="Masukkan Kode. Contoh: MP01" required>
-                </div>
-                <div class="mb-3">
                     <label class="form-label">Nama Mapel</label>
                     <input type="text" class="form-control" name="nama" placeholder="Masukkan Nama. Contoh: PIPAS" required>
                 </div>

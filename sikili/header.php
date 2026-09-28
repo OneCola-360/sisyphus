@@ -16,9 +16,10 @@
                     </li>
                     <li class="nav-item">
                         <div class="btn-group" role="group" aria-label="Basic example">
-                            <a type="button" class="btn btn-outline-secondary" href="create_new/siswa_input.php">Buat Akun Siswa</a>
-                            <a type="button" class="btn btn-outline-secondary" href="create_new/guru_input.php">Buat Akun Guru</a>
-                            <a type="button" class="btn btn-outline-secondary" href="create_new/admin_input.php">Buat Akun Admin</a>
+                            <a type="button" class="btn btn-outline-warning" href="create_new/siswa_input.php">Buat Akun Siswa</a>
+                            <a type="button" class="btn btn-outline-warning" href="create_new/guru_input.php">Buat Akun Guru</a>
+                            <a type="button" class="btn btn-outline-warning" href="create_new/admin_input.php">Buat Akun Admin</a>
+                            <a type="button" class="btn btn-outline-success" href="create_new/mapel_input.php">Buat Data Mapel</a>
                         </div>
                     </li>
                 </ul>
