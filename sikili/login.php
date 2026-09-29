@@ -29,7 +29,7 @@ require("konek.php");
                             <button type="reset" class="btn btn-secondary">Kembali</button>
                         </div>
                     </form>
-                    <div class="mb-3"><a href="create_new/admin_input.php" class="link-secondary link-underline-opacity-25 link-underline-opacity-100-hover">Buat Akun Baru</a></div>
+                    <div class="mb-3"><a href="create_new/register.php" class="link-secondary link-underline-opacity-25 link-underline-opacity-100-hover">Buat Akun Baru</a></div>
                 </div>
             </div>
         </div>

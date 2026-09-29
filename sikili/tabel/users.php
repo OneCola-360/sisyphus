@@ -2,8 +2,8 @@
 include("../konek.php");
 include("header.php");
 
-$sql = "SELECT users.id, username, role, password, created_at, guru.user_id, siswa.user_id,
-COALESCE (siswa.nama, guru.nama) AS nama
+$sql = "SELECT users.id, username, role, password, created_at, nis, kelas, nip, guru.user_id, siswa.user_id,
+COALESCE (siswa.nama, guru.nama) AS nama, COALESCE (guru.jenis_kelamin, siswa.jenis_kelamin) AS jk
 FROM users
 LEFT JOIN siswa ON users.id = siswa.user_id
 LEFT JOIN guru ON users.id = guru.user_id
@@ -39,7 +39,7 @@ $o = 1;
                                         <td><?= $i['username']; ?></td>
                                         <td><?= $i['role']; ?></td>
                                         <td>
-                                            <a href="../form_manip/form_edit.php?id=<?= $i['id']; ?>&&role=<?= $i['role']; ?>&&nama=<?= $i['nama']; ?>&&username=<?= $i['username']; ?>&&password=<?= $i['password']; ?>" class="btn btn-warning btn-sm">Edit</a>
+                                            <a href="../form_manip/form_edit.php?id=<?= $i['id']; ?>&&role=<?= $i['role']; ?>&&username=<?= $i['username']; ?>&&password=<?= $i['password']; ?><?php if($i['role'] == 'siswa'):?>&&nis=<?= $i['nis']; ?>&&nama=<?= $i['nama']; ?>&&kelas=<?= $i['kelas']; ?>&&jk=<?= $i['jk']; ?><?php elseif ($i['role'] == 'guru'): ?>&&nip=<?= $i['nip']; ?>&&nama=<?= $i['nama']; ?>&&jk=<?= $i['jk']; ?><?php endif; ?>" class="btn btn-warning btn-sm">Edit</a>
                                             <a href="../aksi/akun/aksi_hapus.php?id=<?= $i['id']; ?>&&role=<?= $i['role']; ?>" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')" class="btn btn-danger btn-sm">Hapus</a>
                                         </td>
                                     </tr>

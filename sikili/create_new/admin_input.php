@@ -9,32 +9,7 @@ include("header.php");
             <h3>Form Tambah Admin</h3>
         </div>
         <div class="card-body">
-            <h4>Data Profil Guru</h4>
-            <hr>
             <form action="../aksi/akun/aksi_akun.php" method="post">
-                <div class="mb-3">
-                    <label class="form-label">Nomor Induk Pengajar</label>
-                    <input type="number" class="form-control" name="nip" placeholder="Contoh: 12345678" require>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Nama Lengkap Guru</label>
-                    <input type="text" class="form-control" name="nama" placeholder="Contoh: Ujang Acep" required>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Jenis Kelamin</label>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="jk" value="Laki-laki" id="laki">
-                        <label class="form-check-label" for="laki">
-                            Laki-laki
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="jk" value="Perempuan" id="perempuan">
-                        <label class="form-check-label" for="perempuan">
-                            Perempuan
-                        </label>
-                    </div>
-                </div>
                 <h4>Data Kredensial Akun</h4>
                 <div class="mb-3">
                     <label class="form-label">Username</label>

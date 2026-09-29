@@ -14,7 +14,7 @@ include("header.php");
             <form action="../aksi/akun/aksi_akun.php" method="post">
                 <div class="mb-3">
                     <label class="form-label">Nomor Induk Pengajar</label>
-                    <input type="number" class="form-control" name="nip" placeholder="Contoh: 12345678" require>
+                    <input type="number" class="form-control" name="nip" placeholder="Contoh: 12345678" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Nama Lengkap Guru</label>
